@@ -264,7 +264,7 @@ if (!fs.existsSync(logDir)) {
   console.log("Created log directory:", logDir);
 }
 
-ipcMain.handle("delete-epc-record", async (event, matchkeyid, stationNo) => {
+ipcMain.handle("delete-epc-record", async (event, matchkeyid, stationNo, epcCode) => {
   try {
     console.log(matchkeyid, "keyidkeyid");
     const pool = await sql.connect(config);
@@ -296,7 +296,7 @@ ipcMain.handle("delete-epc-record", async (event, matchkeyid, stationNo) => {
 
     await sql.close();
  
-    const logEntry = `[${new Date().toISOString()}] Matchkeyid Deleted: ${matchkeyid}\n`;
+    const logEntry = `[${new Date().toISOString()}] Matchkeyid Deleted: ${matchkeyid}, EPC: ${epcCode}, stationNo: ${stationNo}\n`;
     fs.appendFileSync(logDeleteFilePath, logEntry);
 
     return { success: true };
