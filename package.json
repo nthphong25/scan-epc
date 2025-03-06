@@ -4,16 +4,17 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron .",
-    "build": "electron-builder"
+    "start": "electron-forge start",
+    "build": "electron-builder",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "electron": "^34.3.0",
-    "electron-builder": "^25.1.8"
+    "electron-prebuilt-compile": "34.3.0"
   },
   "build": {
     "appId": "com.my-electron-app",

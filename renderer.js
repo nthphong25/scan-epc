@@ -251,7 +251,6 @@ epcCodeInput.addEventListener("input", () => {
       // Gọi hàm trong main process để xử lý stored procedure
 
       ipcRenderer.invoke("call-sp-upsert-epc", epcCode).then((result) => {
-          console.log("Stored procedure result:", result);
           if (result.success && result.returnValue == 0) {
             // ipcRenderer.invoke(
             //   "show-confirm-dialog",
